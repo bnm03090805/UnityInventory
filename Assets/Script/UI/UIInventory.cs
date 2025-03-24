@@ -8,7 +8,6 @@ public class UIInventory : MonoBehaviour
 
     [SerializeField] private GameObject uiInventory;
     [SerializeField] private Button mainBtn;
-
     [SerializeField] private UISlot slotPrefab;
     UISlot[] slots;
     [SerializeField] private Transform slotParent;
