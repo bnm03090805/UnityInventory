@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -20,23 +21,25 @@ public class Character : MonoBehaviour
     public float HPModifier { get; private set; }
     public float CriticalModifier { get; private set; }
 
-    public Character()
+    public UIInventory Inventory { get; private set; }
+
+    public Character(string name, string description, int level, int maxExp, int exp, float atk,float def, float hp, float critical, float gold, float atkModifier,float defModifier,float HPModifier,float criModifier, UIInventory uIInventory)
     {
-        Debug.Log("캐릭터 생성됨");
-        this.Name = "Chad";
-        this.Description = "코딩의 노예가 된지 10년짜리 되는 머슴입니다. 오늘도 밤샘일만 남아서 치킨을 시킬지도 모른다는 생각에 배민을 키고 있네요.";
-        this.Level = 10;
-        this.MaxExp = 12;
-        this.Exp = 9;
-        this.Atk = 35f;
-        this.Def = 40f;
-        this.HP = 100f;
-        this.Critical = 25f;
-        this.Gold = 2000;
-        this.AtkModifier = 0;
-        this.DefModifier = 0;
-        this.HPModifier = 0;
-        this.CriticalModifier = 0;
+        this.Name = name;
+        this.Description = description;
+        this.Level = level;
+        this.MaxExp = maxExp;
+        this.Exp = exp;
+        this.Atk = atk;
+        this.Def = def;
+        this.HP = hp;
+        this.Critical = critical;
+        this.Gold = gold;
+        this.AtkModifier = atkModifier;
+        this.DefModifier = defModifier;
+        this.HPModifier = HPModifier;
+        this.CriticalModifier = criModifier;
+        Inventory = uIInventory;
     }
 
     
