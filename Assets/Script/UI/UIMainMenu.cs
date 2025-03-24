@@ -27,7 +27,7 @@ public class UIMainMenu : MonoBehaviour
         statusBtn.onClick.AddListener(OpenStatus);
         inventoryBtn.onClick.AddListener(OpenInventory);
         player = GameManager.Instance.Player;
-        PlayerInfo();
+        UpdatePlayerInfo();
     }
 
     public void OpenMainMenu()
@@ -35,12 +35,14 @@ public class UIMainMenu : MonoBehaviour
         UIManager.Instance.UIInventory.gameObject.SetActive(false);
         UIManager.Instance.UIStatus.gameObject.SetActive(false);
         UIManager.Instance.UIMainMenu.gameObject.SetActive(true);
+        UpdatePlayerInfo();
     }
 
     public void OpenStatus()
     {
         UIManager.Instance.UIMainMenu.gameObject.SetActive(false);
         UIManager.Instance.UIStatus.gameObject.SetActive(true);
+        UIManager.Instance.UIStatus.UpdateUI();
     }
 
     public void OpenInventory()
@@ -49,7 +51,7 @@ public class UIMainMenu : MonoBehaviour
         UIManager.Instance.UIInventory.gameObject.SetActive(true);
     }
 
-    public void PlayerInfo()
+    public void UpdatePlayerInfo()
     {
         playerName.text = $"{player.Name}";
         playerLv.text = $"{player.Level}";

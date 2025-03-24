@@ -33,6 +33,10 @@ public class Character : MonoBehaviour
         this.HP = 100f;
         this.Critical = 25f;
         this.Gold = 2000;
+        this.AtkModifier = 0;
+        this.DefModifier = 0;
+        this.HPModifier = 0;
+        this.CriticalModifier = 0;
     }
 
     
