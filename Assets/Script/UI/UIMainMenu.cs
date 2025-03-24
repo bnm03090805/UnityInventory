@@ -1,25 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject uiMainMenu;
+    [SerializeField] private TextMeshProUGUI playerName;
+    [SerializeField] private TextMeshProUGUI playerLv;
+    [SerializeField] private Image expBar;
+    [SerializeField] private TextMeshProUGUI playerExp;
+    [SerializeField] private TextMeshProUGUI playerDescripition;
     [SerializeField] private Button statusBtn;
     [SerializeField] private Button inventoryBtn;
+
+    Character player;
 
     private void Awake()
     {
         UIManager.Instance.UIMainMenu = this;
+        
     }
-    // Start is called before the first frame update
     void Start()
     {
         statusBtn.onClick.AddListener(OpenStatus);
         inventoryBtn.onClick.AddListener(OpenInventory);
-        UIManager.Instance.UIStatus.mainBtn.onClick.AddListener(OpenMainMenu);
-        UIManager.Instance.UIInventory.mainBtn.onClick.AddListener(OpenMainMenu);
+        player = GameManager.Instance.Player;
+        PlayerInfo();
     }
 
     public void OpenMainMenu()
@@ -41,5 +49,12 @@ public class UIMainMenu : MonoBehaviour
         UIManager.Instance.UIInventory.gameObject.SetActive(true);
     }
 
-    
+    public void PlayerInfo()
+    {
+        playerName.text = $"{player.Name}";
+        playerLv.text = $"{player.Level}";
+        playerDescripition.text = $"{player.Description}";
+        playerExp.text = $"{player.Exp} / {player.MaxExp}";
+        expBar.fillAmount = (float)player.Exp / (float)player.MaxExp;
+    }
 }

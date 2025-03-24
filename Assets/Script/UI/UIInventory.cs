@@ -7,7 +7,7 @@ public class UIInventory : MonoBehaviour
 {
 
     [SerializeField] private GameObject uiInventory;
-    public Button mainBtn;
+    [SerializeField] private Button mainBtn;
 
     private void Awake()
     {
@@ -17,11 +17,6 @@ public class UIInventory : MonoBehaviour
     void Start()
     {
         this.gameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        mainBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
     }
 }
