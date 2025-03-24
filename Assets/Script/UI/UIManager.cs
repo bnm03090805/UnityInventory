@@ -8,15 +8,33 @@ public class UIManager : MonoBehaviour
     [SerializeField] UIStatus uIStatus;
     [SerializeField] UIInventory uIInventory;
 
-    // Start is called before the first frame update
-    void Start()
+    private static UIManager _instance;
+
+    public static UIManager Instance
     {
-        
+        get
+        {
+            if(_instance == null)
+            {
+                _instance = new GameObject("UIManager").AddComponent<UIManager>();
+            }
+            return _instance;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if(_instance != null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            if(_instance != null)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
