@@ -12,12 +12,18 @@ public class UISlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetItem();
+        RefreshUI();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void SetItem()
     {
-        
+
+    }
+
+    void RefreshUI()
+    {
+
     }
 }
