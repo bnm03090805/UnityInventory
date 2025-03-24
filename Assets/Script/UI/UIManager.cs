@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] UIMainMenu uIMainMenu;
+    [SerializeField] UIStatus uIStatus;
+    [SerializeField] UIInventory uIInventory;
+
     // Start is called before the first frame update
     void Start()
     {

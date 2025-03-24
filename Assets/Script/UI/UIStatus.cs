@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UIStatus : MonoBehaviour
 {
+
+    [SerializeField] private GameObject uiStatus;
     // Start is called before the first frame update
     void Start()
     {

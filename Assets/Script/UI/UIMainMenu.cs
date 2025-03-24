@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class UIMainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject uiMainMenu;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
