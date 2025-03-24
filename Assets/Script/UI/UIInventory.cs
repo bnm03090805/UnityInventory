@@ -17,7 +17,7 @@ public class UIInventory : MonoBehaviour
     {
         UIManager.Instance.UIInventory = this;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         this.gameObject.SetActive(false);

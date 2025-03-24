@@ -3089,6 +3089,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1314617792}
   - component: {fileID: 1314617793}
+  - component: {fileID: 1314617794}
   m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
@@ -3110,11 +3111,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1870876055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000028160694, y: 0.000008333531}
-  m_SizeDelta: {x: 0, y: 100}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1314617793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3139,6 +3140,20 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 4
+--- !u!114 &1314617794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314617791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 1
 --- !u!1 &1338564328
 GameObject:
   m_ObjectHideFlags: 0
@@ -3323,6 +3338,7 @@ GameObject:
   - component: {fileID: 1422195551}
   - component: {fileID: 1422195550}
   - component: {fileID: 1422195549}
+  - component: {fileID: 1422195552}
   m_Layer: 0
   m_Name: Scroll View
   m_TagString: Untagged
@@ -3366,7 +3382,7 @@ MonoBehaviour:
   m_Content: {fileID: 1314617792}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -3419,6 +3435,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422195547}
   m_CullTransparentMesh: 1
+--- !u!114 &1422195552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422195547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 0
 --- !u!1 &1471246438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3855,7 +3885,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1074910735}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99998045
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
