@@ -30,7 +30,20 @@ public class UIInventory : MonoBehaviour
 
     void InitUiInventory()
     {
-        for(int i = 0; i < datas.Count; i++)
+        RefreshUI();
+    }
+
+    public void RefreshUI()
+    {
+        if (datas.Count < 1)
+            return;
+
+        for(int i = 0; i < slotParent.childCount; i++)
+        {
+            Destroy(slotParent.GetChild(i).gameObject);
+        }
+
+        for (int i = 0; i < datas.Count; i++)
         {
             //Instantiate(slotPrefab, slotParent);
             UISlot go = Instantiate(slotPrefab, slotParent);

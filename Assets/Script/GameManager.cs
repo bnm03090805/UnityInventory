@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    Button btn;
+
     private static GameManager _instance;
 
     public static GameManager Instance
@@ -38,6 +40,13 @@ public class GameManager : MonoBehaviour
         }
 
         SetData();
+    }
+
+    private void Start()
+    {
+        btn = GameObject.Find("ItemBtn").GetComponent<Button>();
+        Debug.Log(btn);
+        btn.onClick.AddListener(Player.AddItem);
     }
 
     public void SetData()

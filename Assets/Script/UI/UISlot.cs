@@ -13,12 +13,6 @@ public class UISlot : MonoBehaviour
     public int index;
     public UIInventory inventory;
 
-
-    void Start()
-    {
-        
-    }
-
     public void SetItem(Item item)
     {
         this.Item = item;

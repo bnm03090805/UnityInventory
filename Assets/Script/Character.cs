@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character
 {
     public string Name { get; private set; }
     public string Description { get; private set; }
@@ -45,14 +45,9 @@ public class Character : MonoBehaviour
 
     public void AddItem()
     {
-        for(int i = 0; i< 3 ; i++)
-        {
-            //UISlot uISlot = new UISlot();
-            //uISlot.SetItem(GameManager.Instance.Items[Random.Range(0, GameManager.Instance.Items.Count - 1)]);
-            //GameManager.Instance.Player.Inventory.slots.Add(uISlot);
-            Item item = GameManager.Instance.Items[Random.Range(0, GameManager.Instance.Items.Count - 1)];
-            GameManager.Instance.Player.Inventory.datas.Add(item);
-        }
+        Item item = GameManager.Instance.Items[Random.Range(0, GameManager.Instance.Items.Count - 1)];
+        GameManager.Instance.Player.Inventory.datas.Add(item);
+        Debug.Log($"AddItemÈ£Ãâ {item.Name}");
     }
 
     void Equip()

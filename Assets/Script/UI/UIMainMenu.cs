@@ -49,6 +49,7 @@ public class UIMainMenu : MonoBehaviour
     {
         UIManager.Instance.UIMainMenu.gameObject.SetActive(false);
         UIManager.Instance.UIInventory.gameObject.SetActive(true);
+        UIManager.Instance.UIInventory.RefreshUI();
     }
 
     public void UpdatePlayerInfo()
