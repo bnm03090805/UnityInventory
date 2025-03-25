@@ -18,6 +18,7 @@ public class UIInventory : MonoBehaviour
         UIManager.Instance.UIInventory = this;
         slots = new List<UISlot>();
         datas = new List<Item>();
+        //Debug.Log(slots.Count);
     }
 
     void Start()
@@ -38,14 +39,8 @@ public class UIInventory : MonoBehaviour
         if (datas.Count < 1)
             return;
 
-        for(int i = 0; i < slotParent.childCount; i++)
+        for (int i = slots.Count; i < datas.Count; i++)
         {
-            Destroy(slotParent.GetChild(i).gameObject);
-        }
-
-        for (int i = 0; i < datas.Count; i++)
-        {
-            //Instantiate(slotPrefab, slotParent);
             UISlot go = Instantiate(slotPrefab, slotParent);
             go.inventory = this;
             go.SetItem(i);
