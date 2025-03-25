@@ -30,6 +30,7 @@ public class UISlot : MonoBehaviour
         if(Item != null)
         {
             Icon.sprite = Item.Icon;
+            equipIcon.gameObject.SetActive(Item.isEquip);
         }
     }
 

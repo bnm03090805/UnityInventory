@@ -20,8 +20,9 @@ public class Item
     public float Def { get; private set; }
     public float HP {  get; private set; }
     public float Cri { get; private set; }
+    public bool isEquip {  get; private set; }
 
-    public Item(string name, string description, Sprite icon, ItemType type, float atk, float def, float hp, float cri)
+    public Item(string name, string description, Sprite icon, ItemType type, float atk, float def, float hp, float cri, bool isEquip)
     {
         this.Name = name;
         this.Description = description;
@@ -31,5 +32,6 @@ public class Item
         this.Def = def;
         this.HP = hp;
         this.Cri = cri;
+        this.isEquip = isEquip;
     }
 }

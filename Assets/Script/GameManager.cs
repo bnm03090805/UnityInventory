@@ -79,25 +79,26 @@ public class GameManager : MonoBehaviour
             10f, // atk
             0f, // def
             0f, // hp
-            5f)); // cri
+            5f,// cri
+            false)); // isequip 
         Items.Add(new Item(
             "로브",
             "로브입니다",
             Resources.Load<Sprite>("Icon/cloaks"), //icon))
             ItemType.Armor,
-            0f, 10f, 20f, 0f));
+            0f, 10f, 20f, 0f, false));
         Items.Add(new Item(
             "목걸이",
             "목걸이입니다",
             Resources.Load<Sprite>("Icon/necklace"),
             ItemType.Ac,
-            3f, 2f, 10f, 5f));
+            3f, 2f, 10f, 5f, false));
         Items.Add(new Item(
             "투구",
             "투구입니다",
             Resources.Load<Sprite>("Icon/helmets"),
             ItemType.Helmet,
-            0f, 20f, 30f, 0f));
+            0f, 20f, 30f, 0f, false));
 
 
     }
