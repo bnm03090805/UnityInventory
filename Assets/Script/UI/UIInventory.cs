@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class UIInventory : MonoBehaviour
     public List<UISlot> slots;
     public List<Item> datas;
     [SerializeField] private Transform slotParent;
+    [SerializeField] private TextMeshProUGUI inventoryText;
+
 
     private void Awake()
     {
@@ -32,6 +35,7 @@ public class UIInventory : MonoBehaviour
     void InitUiInventory()
     {
         RefreshUI();
+        inventoryText.text = $"{slots.Count} / {GameManager.Instance.Items.Count}";
     }
 
     public void RefreshUI()
@@ -39,12 +43,10 @@ public class UIInventory : MonoBehaviour
         if (datas.Count < 1)
             return;
 
-        for(int i = 0; i<slots.Count; i++)
+        for (int i = 0; i < slots.Count; i++)
         {
-            slots[i].RefreshUI();    
+            slots[i].RefreshUI();
         }
-
-       
 
         for (int i = slots.Count; i < datas.Count; i++)
         {
@@ -53,5 +55,7 @@ public class UIInventory : MonoBehaviour
             go.SetItem(i);
             slots.Add(go);
         }
+
+        inventoryText.text = $"{slots.Count} / {GameManager.Instance.Items.Count}";
     }
 }
