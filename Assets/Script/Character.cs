@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -45,18 +46,25 @@ public class Character
 
     public void AddItem()
     {
-        Item item = GameManager.Instance.Items[Random.Range(0, GameManager.Instance.Items.Count - 1)];
+        Item item = GameManager.Instance.Items[UnityEngine.Random.Range(0, GameManager.Instance.Items.Count)];
         GameManager.Instance.Player.Inventory.datas.Add(item);
         Debug.Log($"AddItem»£√‚ {item.Name}");
     }
 
-    void Equip()
+    public void Equip(int index)
     {
-
+        if (GameManager.Instance.Player.Inventory.datas[index].isEquip)
+        {
+            UnEquip(index);
+            return;
+        }
+        GameManager.Instance.Player.Inventory.datas[index].isEquip = true;
+        GameManager.Instance.Player.Inventory.RefreshUI();
     }
 
-    void UnEquip()
+    public void UnEquip(int index)
     {
-
+        GameManager.Instance.Player.Inventory.datas[index].isEquip = false;
+        GameManager.Instance.Player.Inventory.RefreshUI();
     }
 }

@@ -39,6 +39,11 @@ public class UIInventory : MonoBehaviour
         if (datas.Count < 1)
             return;
 
+        for(int i = 0; i<slots.Count; i++)
+        {
+            slots[i].RefreshUI();
+        }
+
         for (int i = slots.Count; i < datas.Count; i++)
         {
             UISlot go = Instantiate(slotPrefab, slotParent);

@@ -7,11 +7,16 @@ public class UISlot : MonoBehaviour
 {
     public Item Item { get; private set; }
     [SerializeField] private Image Icon;
-    [SerializeField] private Image equipIcon;
+    [SerializeField] private Outline outline;
     [SerializeField] private Button btn;
 
     public int index;
     public UIInventory inventory;
+
+    private void Start()
+    {
+        btn.onClick.AddListener(() => GameManager.Instance.Player.Equip(index));
+    }
 
     public void SetItem(Item item)
     {
@@ -25,12 +30,12 @@ public class UISlot : MonoBehaviour
         RefreshUI();
     }
 
-    void RefreshUI()
+    public void RefreshUI()
     {
         if(Item != null)
         {
             Icon.sprite = Item.Icon;
-            equipIcon.gameObject.SetActive(Item.isEquip);
+            outline.enabled = Item.isEquip;
         }
     }
 
