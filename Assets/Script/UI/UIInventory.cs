@@ -41,8 +41,10 @@ public class UIInventory : MonoBehaviour
 
         for(int i = 0; i<slots.Count; i++)
         {
-            slots[i].RefreshUI();
+            slots[i].RefreshUI();    
         }
+
+       
 
         for (int i = slots.Count; i < datas.Count; i++)
         {

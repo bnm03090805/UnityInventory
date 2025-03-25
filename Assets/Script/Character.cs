@@ -17,10 +17,10 @@ public class Character
     public float Critical { get; private set; }
     public float Gold { get; private set; }
 
-    public float AtkModifier { get; private set; }
-    public float DefModifier { get; private set; }
-    public float HPModifier { get; private set; }
-    public float CriticalModifier { get; private set; }
+    public float AtkModifier { get; set; }
+    public float DefModifier { get; set; }
+    public float HPModifier { get;  set; }
+    public float CriticalModifier { get; set; }
 
     public UIInventory Inventory { get; private set; }
 
@@ -47,8 +47,20 @@ public class Character
     public void AddItem()
     {
         Item item = GameManager.Instance.Items[UnityEngine.Random.Range(0, GameManager.Instance.Items.Count)];
+        for(int i = 0; i<Inventory.slots.Count; i++)
+        {
+            if (Inventory.slots[i].Item.Name == item.Name)
+            {
+                Inventory.slots[i].quantity++;
+                Debug.Log($"AddItem호출 {item.Name}");
+                Debug.Log($"{Inventory.slots[i].quantity}");
+                Inventory.RefreshUI();
+                return;
+            }
+        }
         GameManager.Instance.Player.Inventory.datas.Add(item);
         Debug.Log($"AddItem호출 {item.Name}");
+        Inventory.RefreshUI();
     }
 
     public void Equip(int index)
@@ -59,12 +71,24 @@ public class Character
             return;
         }
         GameManager.Instance.Player.Inventory.datas[index].isEquip = true;
+        GameManager.Instance.Player.AtkModifier += GameManager.Instance.Player.Inventory.datas[index].Atk;
+        GameManager.Instance.Player.DefModifier += GameManager.Instance.Player.Inventory.datas[index].Def;
+        GameManager.Instance.Player.HPModifier += GameManager.Instance.Player.Inventory.datas[index].HP;
+        GameManager.Instance.Player.CriticalModifier += GameManager.Instance.Player.Inventory.datas[index].Cri;
+        Debug.Log("능력치 상승");
+        Debug.Log($"ATK:{GameManager.Instance.Player.AtkModifier} DEF : {GameManager.Instance.Player.DefModifier}, HP : {GameManager.Instance.Player.HPModifier}, Cri : {GameManager.Instance.Player.CriticalModifier}");
         GameManager.Instance.Player.Inventory.RefreshUI();
     }
 
     public void UnEquip(int index)
     {
         GameManager.Instance.Player.Inventory.datas[index].isEquip = false;
+        GameManager.Instance.Player.AtkModifier -= GameManager.Instance.Player.Inventory.datas[index].Atk;
+        GameManager.Instance.Player.DefModifier -= GameManager.Instance.Player.Inventory.datas[index].Def;
+        GameManager.Instance.Player.HPModifier -= GameManager.Instance.Player.Inventory.datas[index].HP;
+        GameManager.Instance.Player.CriticalModifier -= GameManager.Instance.Player.Inventory.datas[index].Cri;
+        Debug.Log("능력치 저하");
+        Debug.Log($"ATK:{GameManager.Instance.Player.AtkModifier} DEF : {GameManager.Instance.Player.DefModifier}, HP : {GameManager.Instance.Player.HPModifier}, Cri : {GameManager.Instance.Player.CriticalModifier}");
         GameManager.Instance.Player.Inventory.RefreshUI();
     }
 }
