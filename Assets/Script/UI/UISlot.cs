@@ -5,25 +5,38 @@ using UnityEngine.UI;
 
 public class UISlot : MonoBehaviour
 {
-    [SerializeField] private Image icon;
+    public Item Item { get; private set; }
+    [SerializeField] private Image Icon;
     [SerializeField] private Image equipIcon;
     [SerializeField] private Button btn;
 
-    // Start is called before the first frame update
+    public int index;
+    public UIInventory inventory;
+
+
     void Start()
     {
-        SetItem();
-        RefreshUI();
+        
     }
 
-
-    void SetItem()
+    public void SetItem(Item item)
     {
+        this.Item = item;
+    }
 
+    public void SetItem(int i)
+    {
+        index = i;
+        this.Item = inventory.datas[index];
+        RefreshUI();
     }
 
     void RefreshUI()
     {
-
+        if(Item != null)
+        {
+            Icon.sprite = Item.Icon;
+        }
     }
+
 }

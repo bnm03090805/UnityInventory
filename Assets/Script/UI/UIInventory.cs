@@ -9,26 +9,34 @@ public class UIInventory : MonoBehaviour
     [SerializeField] private GameObject uiInventory;
     [SerializeField] private Button mainBtn;
     [SerializeField] private UISlot slotPrefab;
-    UISlot[] slots;
+    public List<UISlot> slots;
+    public List<Item> datas;
     [SerializeField] private Transform slotParent;
 
     private void Awake()
     {
         UIManager.Instance.UIInventory = this;
+        slots = new List<UISlot>();
+        datas = new List<Item>();
     }
 
     void Start()
     {
         this.gameObject.SetActive(false);
         mainBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
+        GameManager.Instance.Player.AddItem();
         InitUiInventory();
     }
 
     void InitUiInventory()
     {
-        for(int i = 0; i < 20; i++)
+        for(int i = 0; i < datas.Count; i++)
         {
-            Instantiate(slotPrefab, slotParent);
+            //Instantiate(slotPrefab, slotParent);
+            UISlot go = Instantiate(slotPrefab, slotParent);
+            go.inventory = this;
+            go.SetItem(i);
+            slots.Add(go);
         }
     }
 }

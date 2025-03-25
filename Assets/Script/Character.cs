@@ -42,5 +42,26 @@ public class Character : MonoBehaviour
         Inventory = uIInventory;
     }
 
-    
+
+    public void AddItem()
+    {
+        for(int i = 0; i< 3 ; i++)
+        {
+            //UISlot uISlot = new UISlot();
+            //uISlot.SetItem(GameManager.Instance.Items[Random.Range(0, GameManager.Instance.Items.Count - 1)]);
+            //GameManager.Instance.Player.Inventory.slots.Add(uISlot);
+            Item item = GameManager.Instance.Items[Random.Range(0, GameManager.Instance.Items.Count - 1)];
+            GameManager.Instance.Player.Inventory.datas.Add(item);
+        }
+    }
+
+    void Equip()
+    {
+
+    }
+
+    void UnEquip()
+    {
+
+    }
 }
