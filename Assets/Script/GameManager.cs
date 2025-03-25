@@ -99,6 +99,18 @@ public class GameManager : MonoBehaviour
             Resources.Load<Sprite>("Icon/helmets"),
             ItemType.Helmet,
             0f, 20f, 30f, 0f, false));
+        Items.Add(new Item(
+            "활",
+            "활입니다",
+            Resources.Load<Sprite>("Icon/b_t_01"),
+            ItemType.Weapon,
+            15f, 0f, 0f, 20f, false));
+        Items.Add(new Item(
+            "도끼",
+            "도끼입니다",
+            Resources.Load<Sprite>("Icon/axe"),
+            ItemType.Weapon,
+            20f, 0f, 0f, 5f, false));
 
 
     }

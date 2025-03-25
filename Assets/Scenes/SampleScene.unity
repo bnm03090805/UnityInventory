@@ -2826,6 +2826,7 @@ MonoBehaviour:
   slotPrefab: {fileID: 6817568847610970833, guid: a4051f44d3eb0474897dd0d6cae3b993, type: 3}
   slots: []
   slotParent: {fileID: 1314617792}
+  inventoryText: {fileID: 907017583}
 --- !u!1 &1292038681
 GameObject:
   m_ObjectHideFlags: 0

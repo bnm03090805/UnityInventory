@@ -52,8 +52,7 @@ public class Character
             if (Inventory.slots[i].Item.Name == item.Name)
             {
                 Inventory.slots[i].quantity++;
-                Debug.Log($"AddItem호출 {item.Name}");
-                Debug.Log($"{Inventory.slots[i].quantity}");
+                Debug.Log($"AddItem호출 {item.Name} Count : {Inventory.slots[i].quantity}");
                 Inventory.RefreshUI();
                 return;
             }
